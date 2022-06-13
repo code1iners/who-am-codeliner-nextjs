@@ -6,7 +6,7 @@ import MainBody from "../components/layouts/main-body";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="h-screen flex flex-col justify-between sm:px-20 lg:px-32 xl:px-44">
+    <div className="h-screen flex flex-col justify-between overflow-hidden sm:px-20 lg:px-32 xl:px-44">
       <MainHeader />
       <MainBody className="grow">
         <Component {...pageProps} />
