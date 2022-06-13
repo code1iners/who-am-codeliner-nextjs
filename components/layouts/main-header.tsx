@@ -16,7 +16,7 @@ export default function MainHeader() {
 
   return (
     <header className="px-2 py-5 flex items-center justify-between">
-      <div className="flex items-center gap-1 cursor-pointer">
+      <div className="flex items-center gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-7 w-7"
