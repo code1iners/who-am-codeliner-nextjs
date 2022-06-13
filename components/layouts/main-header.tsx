@@ -1,4 +1,19 @@
+import { useRef } from "react";
+
 export default function MainHeader() {
+  const emailRef = useRef<HTMLSpanElement>(null);
+  const onCopyClick = async () => {
+    const text = emailRef.current?.innerText;
+    if (text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("The email copied to clipboard.");
+      } catch (error) {
+        alert("Failed copy the email into clipboard.");
+      }
+    }
+  };
+
   return (
     <header className="px-2 py-5 flex items-center justify-between">
       <div className="flex items-center gap-1 cursor-pointer">
@@ -19,7 +34,7 @@ export default function MainHeader() {
         <h1 className="font-bold invisible sm:visible">Who Am Codeliner</h1>
       </div>
       <div className="font-semibold tracking-wider text-xs sm:text-sm flex items-center gap-1 visible">
-        <span>Codeliner@gmail.com</span>
+        <span ref={emailRef}>codeliner@gmail.com</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5 cursor-pointer transition hover:scale-110"
@@ -27,6 +42,7 @@ export default function MainHeader() {
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth="2"
+          onClick={onCopyClick}
         >
           <path
             strokeLinecap="round"
