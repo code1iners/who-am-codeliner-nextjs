@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import MainFavicon from "../components/main-favicon";
+import MainFavicon from "@/components/main-favicon";
 
 export default function Document() {
   return (

@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import ContactList from "../components/contact-list";
-import MyLocation from "../components/my-location";
-import TypingText from "../components/typing-text";
-import Avatar from "../assets/codeliners_avatar.jpg";
+import ContactList from "@/components/contact-list";
+import MyLocation from "@/components/my-location";
+import TypingText from "@/components/typing-text";
+import Avatar from "@/assets/codeliners_avatar.jpg";
 
 const Home: NextPage = () => {
   return (

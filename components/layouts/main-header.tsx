@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 export default function MainHeader() {
   const emailRef = useRef<HTMLSpanElement>(null);
@@ -14,25 +14,55 @@ export default function MainHeader() {
     }
   };
 
+  const onLocaleClick = ({
+    currentTarget,
+  }: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(currentTarget.innerText);
+  };
+
   return (
     <header className="px-2 py-5 flex items-center justify-between">
-      <div className="flex items-center gap-1">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-          />
-        </svg>
-        <h1 className="font-bold invisible sm:visible">Who Am Codeliner</h1>
+      <div className="flex items-center gap-5">
+        <div className="flex items-center gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-7 w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            />
+          </svg>
+          <h1 className="font-bold invisible sm:visible">Who Am Codeliner</h1>
+        </div>
+
+        <div>
+          <ul className="flex items-center gap-3">
+            <li>
+              <button
+                className="uppercase tracking-wider text-sm "
+                onClick={onLocaleClick}
+              >
+                ko
+              </button>
+            </li>
+            <li>
+              <button
+                className="uppercase tracking-wider text-sm "
+                onClick={onLocaleClick}
+              >
+                en
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
+
       <div className="font-semibold tracking-wider text-xs sm:text-sm flex items-center gap-1 visible">
         <span ref={emailRef}>codeliner@gmail.com</span>
         <svg
