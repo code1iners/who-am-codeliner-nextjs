@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section className="space-y-5 col-start-1 col-end-3 md:row-start-1 md:col-end-2">
+      <section className="pb-10 space-y-5 col-start-1 col-end-3 md:row-start-1 md:col-end-2">
         {/* Location */}
         <MyLocation />
 

@@ -8,3 +8,7 @@ This is a simple self introduce website.
     - React
     - Tailwind CSS
     - Typescript
+
+## To do list.
+
+    - Text message modal.
