@@ -29,7 +29,7 @@ export default function TypingText({ textList }: TypingTextProps) {
         typed.destroy();
       }
     };
-  }, []);
+  }, [textList]);
 
   return (
     <div>
