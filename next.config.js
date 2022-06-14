@@ -1,3 +1,5 @@
+const nextTranslate = require("next-translate");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -12,6 +14,7 @@ const nextConfig = {
     // should handle (these are only required when setting up domain routing)
     // Note: subdomains must be included in the domain value to be matched e.g. "fr.example.com".
   },
+  ...nextTranslate(),
 };
 
 module.exports = nextConfig;

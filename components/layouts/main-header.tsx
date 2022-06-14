@@ -1,6 +1,13 @@
 import React, { useRef } from "react";
+import { useRecoilState } from "recoil";
+import { Locale, localeAtom } from "@/atoms/locales";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 export default function MainHeader() {
+  const [localeState, setLocaleState] = useRecoilState(localeAtom);
+  const router = useRouter();
+
   const emailRef = useRef<HTMLSpanElement>(null);
   const onCopyClick = async () => {
     const text = emailRef.current?.innerText;
@@ -17,7 +24,10 @@ export default function MainHeader() {
   const onLocaleClick = ({
     currentTarget,
   }: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(currentTarget.innerText);
+    const locale: Locale = currentTarget.innerText.toLowerCase() as Locale;
+    setLocaleState((curr) => ({ ...curr, locale }));
+
+    router.push("/", "/", { locale });
   };
 
   return (
@@ -38,7 +48,7 @@ export default function MainHeader() {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h1 className="font-bold invisible sm:visible">Who Am Codeliner</h1>
+          <h1 className="font-bold hidden sm:inline">Who Am Codeliner</h1>
         </div>
 
         <div>
@@ -50,6 +60,12 @@ export default function MainHeader() {
               >
                 ko
               </button>
+              {localeState.locale === "ko" && (
+                <motion.div
+                  className="border border-purple-900 bg-purple-400"
+                  layoutId="locale-indicator"
+                ></motion.div>
+              )}
             </li>
             <li>
               <button
@@ -58,6 +74,12 @@ export default function MainHeader() {
               >
                 en
               </button>
+              {localeState.locale === "en" && (
+                <motion.div
+                  className="border border-purple-900 bg-purple-400"
+                  layoutId="locale-indicator"
+                ></motion.div>
+              )}
             </li>
           </ul>
         </div>

@@ -4,8 +4,12 @@ import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
 import Avatar from "@/assets/codeliners_avatar.jpg";
+import useTransition from "next-translate/useTranslation";
 
 const Home: NextPage = () => {
+  const { t, lang } = useTransition("common");
+  console.log(t("current-locale"));
+
   return (
     <article className="h-full mx-2 my-10 space-y-10 grid grid-cols-2 gap-5">
       <section className="col-start-1 col-end-3 md:col-start-2">
