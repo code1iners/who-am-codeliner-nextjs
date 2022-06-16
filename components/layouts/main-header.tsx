@@ -4,6 +4,20 @@ import { Locale, localeAtom } from "@/atoms/locales";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
+const icon = {
+  hidden: {
+    pathLength: 0,
+    fill: "rgba(255, 255, 255, 0)",
+  },
+  visible: {
+    pathLength: 1,
+    fill: "rgba(255, 255, 255, 1)",
+    transition: {
+      duration: 3,
+    },
+  },
+};
+
 export default function MainHeader() {
   const [localeState, setLocaleState] = useRecoilState(localeAtom);
   const router = useRouter();
@@ -43,10 +57,13 @@ export default function MainHeader() {
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path
+            <motion.path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              variants={icon}
+              initial="hidden"
+              animate="visible"
             />
           </svg>
           <h1 className="font-bold hidden sm:inline">Who Am Codeliner</h1>
