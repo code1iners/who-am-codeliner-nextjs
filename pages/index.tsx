@@ -4,11 +4,17 @@ import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
 import Avatar from "@/assets/codeliners_avatar.jpg";
-import useTransition from "next-translate/useTranslation";
+import useTranslation from "next-translate/useTranslation";
+import { useEffect, useRef } from "react";
 
 const Home: NextPage = () => {
-  const { t, lang } = useTransition("common");
-  console.log(t("current-locale"));
+  const { t: homeT } = useTranslation("home");
+  const simpleIntroduceRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (simpleIntroduceRef && simpleIntroduceRef.current) {
+      simpleIntroduceRef.current.innerHTML = homeT("simple-introduce");
+    }
+  }, [simpleIntroduceRef, homeT]);
 
   return (
     <article className="h-full mx-2 my-10 space-y-10 grid grid-cols-2 gap-5">
@@ -26,20 +32,13 @@ const Home: NextPage = () => {
 
       <section className="pb-10 space-y-5 col-start-1 col-end-3 md:row-start-1 md:col-end-2">
         {/* Location */}
-        <MyLocation />
+        <MyLocation location={homeT("my-location")} />
 
         {/* Introduce Typing */}
-        <TypingText textList={["Hello i'm Codeliner"]} />
+        <TypingText textList={[homeT("hello-title")]} />
 
         {/* Introduce Description */}
-        <p className="tracking-wider">
-          I'm just an ordinary <strong>Software Engineer</strong>. Nowadays my
-          interested technology stacks are <strong>NextJS</strong> and{" "}
-          <strong>NestJS</strong> with <strong>GraphQL</strong>. I'm having fun
-          coding right now. If you are interested in <strong>My project</strong>
-          , check out my <strong>Résumé</strong> or <strong>GitHub</strong>{" "}
-          below.
-        </p>
+        <p ref={simpleIntroduceRef} className="tracking-wider"></p>
 
         {/* Contact List */}
         <ContactList />

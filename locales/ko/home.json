@@ -1,0 +1,5 @@
+{
+  "hello-title": "안녕하세요 Codeliner 입니다",
+  "simple-introduce": "저는 평범한 <strong>소프트웨어 엔지니어</strong>입니다. 요즘 저의 관심 기술 스택은 <strong>NextJS</strong> 와 <strong>GraphQL</strong> 기반의 <strong>NestJS</strong>입니다. 저는 요즘 즐코(즐거운 코딩)를 하고 있습니다. 혹시 저에 대해 혹은 <strong>제가 진행했던 프로젝트</strong>에 관심이 있으시면 아래의 <strong>이력서</strong> 또는 <strong>GitHub</strong>를 확인해보는 것도 나쁘지 않을 것입니다.",
+  "my-location": "서울, 대한민국"
+}

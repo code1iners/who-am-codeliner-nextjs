@@ -25,9 +25,10 @@ export default function MainHeader() {
     currentTarget,
   }: React.MouseEvent<HTMLButtonElement>) => {
     const locale: Locale = currentTarget.innerText.toLowerCase() as Locale;
-    setLocaleState((curr) => ({ ...curr, locale }));
-
-    router.push("/", "/", { locale });
+    if (localeState.locale.toLowerCase() !== locale.toLowerCase()) {
+      setLocaleState((curr) => ({ ...curr, locale }));
+      router.push("/", "/", { locale });
+    }
   };
 
   return (

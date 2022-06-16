@@ -1,4 +1,8 @@
-export default function MyLocation() {
+interface MyLocationProps {
+  location: string;
+}
+
+export default function MyLocation({ location }: MyLocationProps) {
   return (
     <div className="flex items-center gap-1">
       <svg
@@ -20,7 +24,7 @@ export default function MyLocation() {
           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
         />
       </svg>
-      <p className="font-semibold -tracking-wider">Seoul, South Korea</p>
+      <p className="font-semibold -tracking-wider">{location}</p>
     </div>
   );
 }

@@ -1,4 +1,8 @@
+import useTranslation from "next-translate/useTranslation";
+
 export default function ContactList() {
+  const { t: commontT } = useTranslation("common");
+
   return (
     <ul className="flex items-center gap-5">
       <button className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md transition hover:scale-110 origin-left">
@@ -14,7 +18,7 @@ export default function ContactList() {
           target="_blank"
           rel="noreferrer"
         >
-          GitHub
+          {commontT("github")}
         </a>
       </button>
 
@@ -31,7 +35,7 @@ export default function ContactList() {
           target="_blank"
           rel="noreferrer"
         >
-          Resume
+          {commontT("resume")}
         </a>
       </button>
     </ul>

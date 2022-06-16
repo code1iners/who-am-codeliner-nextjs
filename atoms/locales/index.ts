@@ -9,7 +9,7 @@ export interface LocaleAtom {
 export const localeAtom = atom<LocaleAtom>({
   key: "localeAtom",
   default: {
-    locale: "en",
+    locale: "ko",
   },
 });
 
