@@ -1,6 +1,6 @@
-import { toastDisplayTimeAtom } from "@/atoms/toasts";
+import { toastDisplayTimeAtom, toastsAtom } from "@/atoms/toasts";
 import { motion } from "framer-motion";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface PcToast {
   title: string;
@@ -30,11 +30,17 @@ const itemVariants = {
 };
 
 export default function PcToast({
+  id,
   title = "Title",
   message = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus
     itaque modi enim dolores, unde explicabo,`,
-}: PcToast) {
+}: PcToastProps) {
   const toastDisplayTimeState = useRecoilValue(toastDisplayTimeAtom);
+  const setToasts = useSetRecoilState(toastsAtom);
+
+  const onCloseClick = () =>
+    setToasts((curr) => curr.filter((toast) => toast.id !== id));
+
   return (
     <motion.li
       variants={itemVariants}
@@ -74,6 +80,7 @@ export default function PcToast({
         whileTap={{ scale: 0.8 }}
         whileHover={{ scale: 1.2 }}
         className="absolute top-2 right-2 h-6 w-6 bg-violet-500 text-white rounded-md"
+        onClick={onCloseClick}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
