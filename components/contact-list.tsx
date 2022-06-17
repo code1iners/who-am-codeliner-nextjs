@@ -5,7 +5,7 @@ export default function ContactList() {
 
   return (
     <ul className="flex items-center gap-5">
-      <button className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md transition hover:scale-110 origin-left">
+      <button className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md c-hover-md origin-left">
         <svg
           className="w-7 h-7"
           xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ export default function ContactList() {
         </a>
       </button>
 
-      <button className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md transition hover:scale-110 origin-right">
+      <button className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md c-hover-md origin-right">
         <svg
           className="w-7 h-7"
           xmlns="http://www.w3.org/2000/svg"

@@ -12,3 +12,13 @@
 .no-scroll::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
+
+.c-hover-sm {
+  @apply transition hover:scale-105;
+}
+.c-hover-md {
+  @apply transition hover:scale-110;
+}
+.c-hover-lg {
+  @apply transition hover:scale-125;
+}

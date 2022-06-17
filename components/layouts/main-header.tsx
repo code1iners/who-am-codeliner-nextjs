@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { Locale, localeAtom } from "@/atoms/locales";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { avatarClickedcountAtom, avatarClickedLevel } from "@/atoms/others";
 
 const icon = {
   hidden: {
@@ -20,6 +21,8 @@ const icon = {
 
 export default function MainHeader() {
   const [localeState, setLocaleState] = useRecoilState(localeAtom);
+  const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
+  const avatarClickedCountState = useRecoilValue(avatarClickedcountAtom);
   const router = useRouter();
 
   const emailRef = useRef<HTMLSpanElement>(null);
@@ -104,22 +107,38 @@ export default function MainHeader() {
       </div>
 
       <div className="font-semibold tracking-wider text-xs sm:text-sm flex items-center gap-1 visible">
-        <span ref={emailRef}>codeliner@gmail.com</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 cursor-pointer transition hover:scale-110"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth="2"
-          onClick={onCopyClick}
+        <span
+          ref={emailRef}
+          className="c-hover-md origin-right hidden sm:block"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-          />
-        </svg>
+          codeliner@gmail.com
+        </span>
+        <motion.button
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
+          title="Email Copy"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 cursor-pointer transition"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+            onClick={onCopyClick}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            />
+          </svg>
+        </motion.button>
+        <div className="bg-violet-500 rounded-md p-1 justify-center items-center hidden sm:flex">
+          <span className="text-white cursor-default" title="beginner">
+            {avatarClickedCountState} {avatarClickedLevelState}
+          </span>
+        </div>
       </div>
     </header>
   );

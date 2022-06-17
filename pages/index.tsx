@@ -1,22 +1,54 @@
 import type { NextPage } from "next";
 import Image, { ImageProps } from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
 import Avatar from "@/assets/codeliners_avatar.jpg";
+import { useSetRecoilState } from "recoil";
+import { avatarClickedcountAtom } from "@/atoms/others";
+
+const avatarVariants = {
+  idle: {
+    opacity: 0,
+    scale: 0,
+    rotate: 180,
+  },
+  start: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 1,
+      type: "spring",
+      bounce: 0.5,
+      damping: 5,
+    },
+  },
+  hover: {
+    scale: 1.2,
+  },
+  tap: {
+    scale: 0.8,
+  },
+};
 
 const Home: NextPage = () => {
   const { t: homeT } = useTranslation("home");
   const simpleIntroduceRef = useRef<HTMLParagraphElement>(null);
   const constraintRef = useRef(null);
+  const setAvatarClickedCountState = useSetRecoilState(avatarClickedcountAtom);
   useEffect(() => {
     if (simpleIntroduceRef && simpleIntroduceRef.current) {
       simpleIntroduceRef.current.innerHTML = homeT("simple-introduce");
     }
   }, [simpleIntroduceRef, homeT]);
+
+  const onAvatarClick = () => {
+    setAvatarClickedCountState((curr) => (curr += 1));
+  };
 
   return (
     <article className="h-full mx-2 my-10 space-y-10 grid grid-cols-2 gap-5">
@@ -26,13 +58,21 @@ const Home: NextPage = () => {
           className="flex justify-center overflow-hidden bg-slate-100 rounded-2xl"
         >
           <motion.img
-            drag
+            drag={"x"}
             dragConstraints={constraintRef}
+            dragPropagation
+            dragElastic={0.1}
+            initial="idle"
+            animate="start"
+            variants={avatarVariants}
+            whileHover="hover"
+            whileTap="tap"
             className="rounded-full shadow-sm cursor-pointer"
             src="/assets/codeliners_avatar.jpg"
             width={300}
             height={300}
             alt="Avatar"
+            onClick={onAvatarClick}
           />
         </motion.div>
       </section>
