@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { Locale, localeAtom } from "@/atoms/locales";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { avatarClickedcountAtom, avatarClickedLevel } from "@/atoms/others";
-import useToast from "libs/clients/useToast";
-import useTranslation from "next-translate/useTranslation";
-import useLocale from "libs/clients/useLocale";
+import useToast from "@/libs/clients/useToast";
+import useLocale from "@/libs/clients/useLocale";
 
 const icon = {
   hidden: {
@@ -24,8 +22,6 @@ const icon = {
 
 export default function MainHeader() {
   const [localeState, setLocaleState] = useRecoilState(localeAtom);
-  const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
-  const avatarClickedCountState = useRecoilValue(avatarClickedcountAtom);
   const router = useRouter();
   const { addToast } = useToast();
   const { t } = useLocale();
