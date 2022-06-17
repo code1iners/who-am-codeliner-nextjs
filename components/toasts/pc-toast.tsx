@@ -35,7 +35,6 @@ export default function PcToast({
     itaque modi enim dolores, unde explicabo,`,
 }: PcToast) {
   const toastDisplayTimeState = useRecoilValue(toastDisplayTimeAtom);
-
   return (
     <motion.li
       variants={itemVariants}

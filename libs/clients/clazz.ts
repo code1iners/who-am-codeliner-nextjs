@@ -1,3 +1,3 @@
-export default function clazz(clazz: string[]) {
-  return clazz.join(" ");
+export default function clazz(...classNames: string[]) {
+  return classNames.join(" ");
 }
