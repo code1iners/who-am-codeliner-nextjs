@@ -14,7 +14,7 @@ const icon = {
     pathLength: 1,
     fill: "rgba(255, 255, 255, 1)",
     transition: {
-      duration: 3,
+      duration: 2.5,
     },
   },
 };
@@ -58,7 +58,7 @@ export default function MainHeader() {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
           >
             <motion.path
               strokeLinecap="round"
@@ -114,18 +114,19 @@ export default function MainHeader() {
           codeliner@gmail.com
         </span>
         <motion.button
+          className="cursor-pointer"
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}
           title="Email Copy"
+          onClick={onCopyClick}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 cursor-pointer transition"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth="2"
-            onClick={onCopyClick}
           >
             <path
               strokeLinecap="round"
@@ -134,9 +135,15 @@ export default function MainHeader() {
             />
           </svg>
         </motion.button>
-        <div className="bg-violet-500 rounded-md p-1 justify-center items-center hidden sm:flex">
-          <span className="text-white cursor-default" title="beginner">
-            {avatarClickedCountState} {avatarClickedLevelState}
+        <div className="px-2 bg-violet-500 rounded-md p-1 justify-center items-center gap-1 hidden sm:flex">
+          <span
+            className="text-white cursor-default select-none"
+            title={avatarClickedLevelState}
+          >
+            {avatarClickedCountState}
+          </span>
+          <span className="text-white cursor-default text-xs whitespace-nowrap select-none">
+            {avatarClickedLevelState}
           </span>
         </div>
       </div>

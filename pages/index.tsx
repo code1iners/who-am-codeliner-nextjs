@@ -1,12 +1,10 @@
 import type { NextPage } from "next";
-import Image, { ImageProps } from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
-import Avatar from "@/assets/codeliners_avatar.jpg";
 import { useSetRecoilState } from "recoil";
 import { avatarClickedcountAtom } from "@/atoms/others";
 
@@ -46,9 +44,7 @@ const Home: NextPage = () => {
     }
   }, [simpleIntroduceRef, homeT]);
 
-  const onAvatarClick = () => {
-    setAvatarClickedCountState((curr) => (curr += 1));
-  };
+  const onAvatarClick = () => setAvatarClickedCountState((curr) => (curr += 1));
 
   return (
     <article className="h-full mx-2 my-10 space-y-10 grid grid-cols-2 gap-5">
