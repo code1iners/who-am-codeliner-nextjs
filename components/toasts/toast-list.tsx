@@ -10,7 +10,7 @@ export default function ToastList() {
   return (
     <ul
       className={clazz(
-        "fixed pb-2 mx-2 bottom-0 right-0 flex flex-col-reverse gap-2"
+        "fixed z-20 pb-2 mx-2 bottom-0 right-0 flex flex-col-reverse gap-2"
       )}
     >
       <AnimatePresence>
