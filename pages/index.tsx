@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
-import { useSetRecoilState } from "recoil";
-import { avatarClickedcountAtom } from "@/atoms/others";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { avatarClickedcountAtom, avatarClickedLevel } from "@/atoms/others";
+import useLocale from "libs/clients/useLocale";
 
 const avatarVariants = {
   idle: {
@@ -34,15 +35,17 @@ const avatarVariants = {
 };
 
 const Home: NextPage = () => {
-  const { t: homeT } = useTranslation("home");
+  const { t } = useLocale();
   const simpleIntroduceRef = useRef<HTMLParagraphElement>(null);
   const constraintRef = useRef(null);
   const setAvatarClickedCountState = useSetRecoilState(avatarClickedcountAtom);
+  const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
+  const avatarClickedCountState = useRecoilValue(avatarClickedcountAtom);
   useEffect(() => {
     if (simpleIntroduceRef && simpleIntroduceRef.current) {
-      simpleIntroduceRef.current.innerHTML = homeT("simple-introduce");
+      simpleIntroduceRef.current.innerHTML = t("home", "simple-introduce");
     }
-  }, [simpleIntroduceRef, homeT]);
+  }, [simpleIntroduceRef, t]);
 
   const onAvatarClick = () => setAvatarClickedCountState((curr) => (curr += 1));
 
@@ -51,13 +54,27 @@ const Home: NextPage = () => {
       <section className="col-start-1 col-end-3 md:col-start-2">
         <motion.div
           ref={constraintRef}
-          className="flex justify-center overflow-hidden bg-slate-100 rounded-2xl"
+          className="flex justify-center overflow-hidden bg-slate-100 rounded-2xl relative"
         >
+          <div className="absolute right-3 bottom-3 z-10 px-2 bg-violet-500 rounded-md p-1 justify-center items-center gap-1 hidden sm:flex">
+            <span
+              className="text-white cursor-default select-none"
+              title={avatarClickedLevelState}
+            >
+              {avatarClickedCountState}
+            </span>
+            <span className="text-white cursor-default text-xs whitespace-nowrap select-none">
+              {avatarClickedLevelState}
+            </span>
+          </div>
+
           <motion.img
             drag={"x"}
-            dragConstraints={constraintRef}
-            dragPropagation
-            dragElastic={0.1}
+            dragConstraints={{
+              left: 0,
+              right: 0,
+            }}
+            dragElastic={0.5}
             initial="idle"
             animate="start"
             variants={avatarVariants}
@@ -75,10 +92,10 @@ const Home: NextPage = () => {
 
       <section className="pb-10 space-y-5 col-start-1 col-end-3 md:row-start-1 md:col-end-2">
         {/* Location */}
-        <MyLocation location={homeT("my-location")} />
+        <MyLocation location={t("home", "my-location")} />
 
         {/* Introduce Typing */}
-        <TypingText textList={[homeT("hello-title")]} />
+        <TypingText textList={[t("home", "hello-title")]} />
 
         {/* Introduce Description */}
         <p ref={simpleIntroduceRef} className="tracking-wider"></p>

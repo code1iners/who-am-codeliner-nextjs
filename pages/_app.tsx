@@ -4,6 +4,7 @@ import { RecoilRoot } from "recoil";
 import MainHeader from "@/components/layouts/main-header";
 import MainFooter from "@/components/layouts/main-footer";
 import MainBody from "@/components/layouts/main-body";
+import ToastList from "@/components/toasts/toast-list";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </MainBody>
         <MainFooter />
+
+        <ToastList />
       </div>
     </RecoilRoot>
   );

@@ -4,6 +4,9 @@ import { Locale, localeAtom } from "@/atoms/locales";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { avatarClickedcountAtom, avatarClickedLevel } from "@/atoms/others";
+import useToast from "libs/clients/useToast";
+import useTranslation from "next-translate/useTranslation";
+import useLocale from "libs/clients/useLocale";
 
 const icon = {
   hidden: {
@@ -24,6 +27,8 @@ export default function MainHeader() {
   const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
   const avatarClickedCountState = useRecoilValue(avatarClickedcountAtom);
   const router = useRouter();
+  const { addToast } = useToast();
+  const { t } = useLocale();
 
   const emailRef = useRef<HTMLSpanElement>(null);
   const onCopyClick = async () => {
@@ -31,7 +36,11 @@ export default function MainHeader() {
     if (text) {
       try {
         await navigator.clipboard.writeText(text);
-        alert("The email copied to clipboard.");
+        addToast({
+          title: t("common", "emails.copy"),
+          message: t("common", "emails.copy-success"),
+        });
+        // alert("The email copied to clipboard.");
       } catch (error) {
         alert("Failed copy the email into clipboard.");
       }
@@ -135,17 +144,6 @@ export default function MainHeader() {
             />
           </svg>
         </motion.button>
-        <div className="px-2 bg-violet-500 rounded-md p-1 justify-center items-center gap-1 hidden sm:flex">
-          <span
-            className="text-white cursor-default select-none"
-            title={avatarClickedLevelState}
-          >
-            {avatarClickedCountState}
-          </span>
-          <span className="text-white cursor-default text-xs whitespace-nowrap select-none">
-            {avatarClickedLevelState}
-          </span>
-        </div>
       </div>
     </header>
   );

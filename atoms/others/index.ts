@@ -32,7 +32,9 @@ export const avatarClickedLevel = selector({
       case clickedCount < 300:
         return "미친사람";
       case clickedCount < 400:
-        return "찐";
+        return "초월자";
+      case clickedCount < 500:
+        return "흑염룡";
       default:
         return "이제그만";
     }

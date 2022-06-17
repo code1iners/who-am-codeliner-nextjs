@@ -1,6 +1,16 @@
 {
-  "current-locale": "ko",
-  "github": "깃허브",
-  "resume": "이력서",
-  "interested-technology-stacks": "관심있는 기술 스택들"
+  "locales": {
+    "current": "ko"
+  },
+  "words": {
+    "github": "깃허브",
+    "resume": "이력서"
+  },
+  "messages": {
+    "interested-technology-stacks": "관심있는 기술 스택들"
+  },
+  "emails": {
+    "copy": "이메일 복사",
+    "copy-success": "이메일이 클립보드에 복사되었습니다."
+  }
 }

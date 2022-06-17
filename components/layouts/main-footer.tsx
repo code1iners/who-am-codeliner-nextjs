@@ -1,9 +1,10 @@
+import useLocale from "libs/clients/useLocale";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import PillItem from "./pill-item";
 
 export default function MainFooter() {
-  const { t: commonT } = useTranslation("common");
+  const { t } = useLocale();
   const [stacks, setStacks] = useState([
     "html",
     "css",
@@ -31,7 +32,7 @@ export default function MainFooter() {
       <div className="w-full border-t"></div>
       <div className="flex items-center gap-2">
         <h1 className="text-sm tracking-wider text-gray-400 cursor-default hover:text-black transition-colors">
-          {commonT("interested-technology-stacks")}
+          {t("common", "messages.interested-technology-stacks")}
         </h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"

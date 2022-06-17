@@ -1,7 +1,7 @@
-import useTranslation from "next-translate/useTranslation";
+import useLocale from "libs/clients/useLocale";
 
 export default function ContactList() {
-  const { t: commontT } = useTranslation("common");
+  const { t } = useLocale();
 
   return (
     <ul className="flex items-center gap-5">
@@ -18,7 +18,7 @@ export default function ContactList() {
           target="_blank"
           rel="noreferrer"
         >
-          {commontT("github")}
+          {t("common", "words.github")}
         </a>
       </button>
 
@@ -35,7 +35,7 @@ export default function ContactList() {
           target="_blank"
           rel="noreferrer"
         >
-          {commontT("resume")}
+          {t("common", "words.resume")}
         </a>
       </button>
     </ul>
