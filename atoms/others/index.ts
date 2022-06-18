@@ -1,14 +1,14 @@
 import { atom, selector } from "recoil";
 
-export const avatarClickedcountAtom = atom({
-  key: "avatarClickedcountAtom",
+export const avatarClickedCountAtom = atom({
+  key: "avatarClickedCountAtom",
   default: 0,
 });
 
 export const avatarClickedLevel = selector({
   key: "avatarClickedLevel",
   get: ({ get }) => {
-    const clickedCount = get(avatarClickedcountAtom);
+    const clickedCount = get(avatarClickedCountAtom);
 
     switch (true) {
       case clickedCount < 10:
@@ -42,5 +42,5 @@ export const avatarClickedLevel = selector({
 });
 
 export default {
-  avatarClickedcountAtom,
+  avatarClickedCountAtom,
 };

@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRecoilValue } from "recoil";
 import { toastsAtom } from "@/atoms/toasts";
 import PcToast from "@/components/toasts/pc-toast";
-import clazz from "@/libs/clients/clazz";
+import { clazz } from "@ce1pers/use-class";
 
 export default function ToastList() {
   const toasts = useRecoilValue(toastsAtom);

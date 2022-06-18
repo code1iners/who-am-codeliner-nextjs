@@ -6,7 +6,7 @@ import ContactList from "@/components/contact-list";
 import MyLocation from "@/components/my-location";
 import TypingText from "@/components/typing-text";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { avatarClickedcountAtom, avatarClickedLevel } from "@/atoms/others";
+import { avatarClickedCountAtom, avatarClickedLevel } from "@/atoms/others";
 import useLocale from "libs/clients/useLocale";
 
 const avatarVariants = {
@@ -38,9 +38,9 @@ const Home: NextPage = () => {
   const { t } = useLocale();
   const simpleIntroduceRef = useRef<HTMLParagraphElement>(null);
   const constraintRef = useRef(null);
-  const setAvatarClickedCountState = useSetRecoilState(avatarClickedcountAtom);
+  const setAvatarClickedCountState = useSetRecoilState(avatarClickedCountAtom);
   const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
-  const avatarClickedCountState = useRecoilValue(avatarClickedcountAtom);
+  const avatarClickedCountState = useRecoilValue(avatarClickedCountAtom);
   useEffect(() => {
     if (simpleIntroduceRef && simpleIntroduceRef.current) {
       simpleIntroduceRef.current.innerHTML = t("home", "simple-introduce");

@@ -1,6 +1,6 @@
 {
   "name": "who-am-codeliner",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ce1pers/use-class": "^1.0.3",
+    "@ce1pers/use-window": "^1.1.2",
     "framer-motion": "^6.3.11",
     "next": "12.1.6",
     "next-translate": "^1.4.0",
