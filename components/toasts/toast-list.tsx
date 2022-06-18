@@ -10,13 +10,12 @@ export default function ToastList() {
   return (
     <ul
       className={clazz(
-        "fixed z-20 pb-2 mx-2 bottom-0 right-0 flex flex-col-reverse gap-2"
+        "fixed z-20 pb-2 mx-2 bottom-0 right-0 flex flex-col-reverse gap-2 h-0"
       )}
     >
       <AnimatePresence>
-        {toasts.map((toast) => (
-          <PcToast key={toast.id} {...toast} />
-        ))}
+        {toasts.length &&
+          toasts.map((toast) => <PcToast key={toast.id} {...toast} />)}
       </AnimatePresence>
     </ul>
   );

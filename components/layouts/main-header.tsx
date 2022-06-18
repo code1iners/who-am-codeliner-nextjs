@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Locale, localeAtom } from "@/atoms/locales";
 import { motion } from "framer-motion";
@@ -25,9 +25,15 @@ export default function MainHeader() {
   const router = useRouter();
   const { addToast } = useToast();
   const { t } = useLocale();
+  const [isEmailCopyAvailable, setIsEmailCopyAvailable] = useState(true);
 
   const emailRef = useRef<HTMLSpanElement>(null);
   const onCopyClick = async () => {
+    if (!isEmailCopyAvailable) return;
+
+    // Restricts whether emails can be copied.
+    setIsEmailCopyAvailable(false);
+
     const text = emailRef.current?.innerText;
     if (text) {
       try {
@@ -36,11 +42,17 @@ export default function MainHeader() {
           title: t("common", "emails.copy"),
           message: t("common", "emails.copy-success"),
         });
-        // alert("The email copied to clipboard.");
       } catch (error) {
-        alert("Failed copy the email into clipboard.");
+        console.error(error);
+        addToast({
+          title: t("common", "emails.copy"),
+          message: t("common", "emails.copy-failure"),
+        });
       }
     }
+
+    // Release whether email can be copied.
+    setTimeout(() => setIsEmailCopyAvailable(true), 500);
   };
 
   const onLocaleClick = ({

@@ -11,6 +11,7 @@
   },
   "emails": {
     "copy": "Copy email",
-    "copy-success": "Email successfully copied into clipboard."
+    "copy-success": "Email successfully copied into clipboard.",
+    "copy-failure": "Failed copy the email into clipboard."
   }
 }
