@@ -6,6 +6,9 @@
     "github": "깃허브",
     "resume": "이력서"
   },
+  "text": {
+    "side-project": "사이드 프로젝트"
+  },
   "messages": {
     "interested-technology-stacks": "관심있는 기술 스택들"
   },

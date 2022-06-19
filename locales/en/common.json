@@ -6,6 +6,9 @@
     "github": "GitHub",
     "resume": "Resume"
   },
+  "text": {
+    "side-project": "Side projects"
+  },
   "messages": {
     "interested-technology-stacks": "Interested Technology Stacks"
   },
