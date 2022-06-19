@@ -38,7 +38,7 @@ export default function ArrowButton({
         setIconPath("M19 9l-7 7-7-7");
         break;
     }
-  }, []);
+  }, [direction]);
 
   return (
     <motion.button

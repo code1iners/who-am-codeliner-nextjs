@@ -55,7 +55,7 @@ export default function SideProjects() {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [subscribe, unsubscribe]);
 
   useEffect(() => {
     if (sideProjects.length) {
@@ -127,7 +127,7 @@ export default function SideProjects() {
             className="grid grid-cols-2 grid-rows-1 gap-5 absolute w-full"
           >
             {paginatedProjects.map((project) => (
-              <SideProjectItem {...project} />
+              <SideProjectItem key={project.id} {...project} />
             ))}
           </motion.div>
         }
