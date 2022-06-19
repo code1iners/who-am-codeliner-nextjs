@@ -19,9 +19,6 @@ export default function SideProjects() {
   const [paginatedProjects, setPaginatedProjects] = useState<SideProject[]>([]);
   const offset = 2;
 
-  const rowRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const toggleIsSliding = () => setIsSliding((curr) => !curr);
 
   /**
@@ -57,13 +54,7 @@ export default function SideProjects() {
 
       setPaginatedProjects(currentPageItems);
     }
-  }, [sideProjects, projectPage, containerRef, rowRef]);
-
-  useEffect(() => {
-    if (containerRef.current && rowRef.current) {
-      containerRef.current.style.height = `${rowRef.current.clientHeight}px`;
-    }
-  }, [windowSize]);
+  }, [sideProjects, projectPage]);
 
   const onProjectNextClick = async () => {
     if (isSliding) return;
@@ -83,11 +74,10 @@ export default function SideProjects() {
   };
 
   return windowSize ? (
-    <div ref={containerRef} className="relative h-full flex items-center">
+    <div className="relative flex items-center h-[240px]">
       <AnimatePresence initial={false} onExitComplete={toggleIsSliding}>
         {
           <motion.div
-            ref={rowRef}
             key={projectPage}
             initial={{
               x: isPageDirectionRight ? +windowSize.width : -windowSize.width,
