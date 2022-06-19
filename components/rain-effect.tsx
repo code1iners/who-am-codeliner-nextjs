@@ -6,18 +6,19 @@ interface RainEffectProps {
 }
 
 export default function RainEffect({ parentRef }: RainEffectProps) {
-  const [rainCount, setRainCount] = useState<number>(0);
+  const [rainCount, setRainCount] = useState<number>(100);
   const [rainHeight, setRainHeight] = useState<number>(0);
   useEffect(() => {
     if (parentRef.current) {
-      setRainCount(parentRef.current?.clientWidth / 4);
+      setRainCount(Math.floor(parentRef.current?.clientWidth / 5));
       setRainHeight(parentRef.current?.clientHeight);
     }
   }, [parentRef]);
+  console.log(rainCount, rainHeight);
 
   return (
     <motion.ul className="absolute top-0 left-0 w-full h-full flex gap-0.5 overflow-hidden">
-      {Array.from(Array(100)).map((_, index) => (
+      {Array.from(Array(rainCount)).map((_, index) => (
         <motion.li
           key={index}
           initial={{
