@@ -17,7 +17,7 @@ export default function RainEffect({ parentRef }: RainEffectProps) {
 
   return (
     <motion.ul className="absolute top-0 left-0 w-full h-full flex gap-0.5 overflow-hidden">
-      {Array.from(Array(rainCount)).map((_, index) => (
+      {Array.from(Array(100)).map((_, index) => (
         <motion.li
           key={index}
           initial={{
