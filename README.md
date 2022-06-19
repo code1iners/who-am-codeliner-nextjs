@@ -15,5 +15,5 @@ This is a simple self introduction website.
 
     - Multi language (Solved).
     - Text message modal (Solved).
+    - My project list (Solved).
     - Interactive design.
-    - My project list.

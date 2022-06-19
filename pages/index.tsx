@@ -1,13 +1,11 @@
 import type { NextPage } from "next";
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import ContactList from "@/components/contact-list";
-import MyLocation from "@/components/my-location";
-import TypingText from "@/components/typing-text";
+import { useEffect, useRef } from "react";
+import ContactList from "@/components/home/contact-list";
+import MyLocation from "@/components/home/my-location";
+import TypingText from "@/components/commons/typing-text";
 import useLocale from "@/libs/clients/useLocale";
-import MainAvatar from "@/components/main-avatar";
-import SideProjects from "@/components/side-projects";
-import MyProjects from "@/components/my-projects";
+import MainAvatar from "@/components/home/main-avatar";
+import MyProjects from "@/components/home/my-projects";
 
 const Home: NextPage = () => {
   const { t } = useLocale();

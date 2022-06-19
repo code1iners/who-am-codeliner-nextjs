@@ -1,5 +1,5 @@
 import useLocale from "@/libs/clients/useLocale";
-import SideProjects from "./side-projects";
+import SideProjects from "@/components/home/side-projects";
 
 export default function MyProjects() {
   const { t } = useLocale();
@@ -24,6 +24,7 @@ export default function MyProjects() {
           {t("common", "text.side-project")}
         </h1>
       </div>
+
       <SideProjects />
     </>
   );

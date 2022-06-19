@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SideProject } from "@/components/side-projects";
+import { SideProject } from "@/pages/api/v1/projects";
 
 interface SideProjectItemProps extends SideProject {}
 

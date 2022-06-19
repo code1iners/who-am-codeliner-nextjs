@@ -1,9 +1,8 @@
-import useTranslation from "next-translate/useTranslation";
 import { motion } from "framer-motion";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { avatarClickedCountAtom, avatarClickedLevel } from "@/atoms/others";
-import { useEffect, useRef, useState } from "react";
-import RainEffect from "./rain-effect";
+import { useRef } from "react";
+import RainEffect from "../rain-effect";
 
 const avatarVariants = {
   idle: {
