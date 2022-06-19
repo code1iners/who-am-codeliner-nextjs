@@ -14,6 +14,7 @@ export default function RainEffect({ parentRef }: RainEffectProps) {
       setRainHeight(parentRef.current?.clientHeight);
     }
   }, [parentRef]);
+  console.log(rainCount);
 
   return (
     <motion.ul className="absolute top-0 left-0 w-full h-full flex gap-0.5 overflow-hidden">
