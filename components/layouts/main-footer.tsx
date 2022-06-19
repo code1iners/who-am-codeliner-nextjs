@@ -1,7 +1,6 @@
 import useLocale from "libs/clients/useLocale";
-import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
-import PillItem from "./pill-item";
+import PillItem from "../commons/pill-item";
 
 export default function MainFooter() {
   const { t } = useLocale();

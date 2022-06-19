@@ -1,6 +1,6 @@
 import { clazz } from "@ce1pers/use-class";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ArrowButtonProps {
   classNames?: string;

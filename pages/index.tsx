@@ -38,7 +38,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* My projects */}
-      <section className="pb-10 md:grid-cols-3 col-start-1 col-end-3 space-y-5">
+      <section className="pb-10 col-start-1 col-end-3 space-y-5">
         <MyProjects />
       </section>
     </article>

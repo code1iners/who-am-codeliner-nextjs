@@ -2,14 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import useSWR from "swr";
 import { useScreen } from "@ce1pers/use-window";
+import { SideProject } from "@/pages/api/v1/projects";
 import ArrowButton from "@/components/commons/arrow-button";
 import SideProjectItem from "@/components/home/side-project-item";
-import { SideProject } from "@/pages/api/v1/projects";
 
 export default function SideProjects() {
   const { data: sideProjects } = useSWR("/api/v1/projects");
-
-  const offset = 2;
 
   const { windowSize, subscribe, unsubscribe } = useScreen();
 
@@ -19,6 +17,7 @@ export default function SideProjects() {
   const [hasPreviousPage, setPreviousNextPage] = useState(false);
   const [isPageDirectionRight, setIsPageDirectionRight] = useState(true);
   const [paginatedProjects, setPaginatedProjects] = useState<SideProject[]>([]);
+  const offset = 2;
 
   const rowRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
