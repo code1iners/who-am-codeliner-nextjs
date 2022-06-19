@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </MainBody>
         <MainFooter />
 
+        {/* Toast list */}
         <ToastList />
       </div>
     </RecoilRoot>

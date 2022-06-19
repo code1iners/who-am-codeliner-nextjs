@@ -61,7 +61,7 @@ export default function MainHeader() {
     const locale: Locale = currentTarget.innerText.toLowerCase() as Locale;
     if (localeState.locale.toLowerCase() !== locale.toLowerCase()) {
       setLocaleState((curr) => ({ ...curr, locale }));
-      router.push("/", "/", { locale });
+      router.replace("/", "/", { locale });
     }
   };
 

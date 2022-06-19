@@ -14,5 +14,6 @@ This is a simple self introduction website.
 ## To do list.
 
     - Multi language (Solved).
-    - Text message modal.
-    - Interactice design.
+    - Text message modal (Solved).
+    - Interactive design.
+    - My project list.
