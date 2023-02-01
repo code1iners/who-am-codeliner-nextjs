@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { Locale, localeAtom } from "@/atoms/locales";
-import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import setLanguage from "next-translate/setLanguage";
+import { Locale, localeAtom } from "@/atoms/locales";
 import useToast from "@/libs/clients/useToast";
 import useLocale from "@/libs/clients/useLocale";
+import { isMenuModalOpenAtom } from "@/atoms/modals";
 
 const icon = {
   hidden: {
@@ -20,12 +22,35 @@ const icon = {
   },
 };
 
+const firstMenuBarVariant = {
+  show: {
+    translateY: [0, 3.5, 3.5],
+    rotate: [0, 0, 45],
+  },
+  hide: {
+    translateY: [3.5, 3.5, 0],
+    rotate: [45, 0, 0],
+  },
+};
+
+const secondMenuBarVariant = {
+  show: {
+    translateY: [0, -3.5, -3.5],
+    rotate: [0, 0, -45],
+  },
+  hide: {
+    translateY: [-3.5, -3.5, 0],
+    rotate: [-45, 0, 0],
+  },
+};
+
 export default function MainHeader() {
+  const [isMenuDisplay, setIsMenuDisplay] = useRecoilState(isMenuModalOpenAtom);
+  const [isEmailCopyAvailable, setIsEmailCopyAvailable] = useState(true);
   const [localeState, setLocaleState] = useRecoilState(localeAtom);
   const router = useRouter();
   const { addToast } = useToast();
   const { t } = useLocale();
-  const [isEmailCopyAvailable, setIsEmailCopyAvailable] = useState(true);
 
   const emailRef = useRef<HTMLSpanElement>(null);
   const onCopyClick = async () => {
@@ -59,16 +84,37 @@ export default function MainHeader() {
     currentTarget,
   }: React.MouseEvent<HTMLButtonElement>) => {
     const locale: Locale = currentTarget.innerText.toLowerCase() as Locale;
+
     if (localeState.locale.toLowerCase() !== locale.toLowerCase()) {
       setLocaleState((curr) => ({ ...curr, locale }));
-      router.replace("/", "/", { locale });
+      setLanguage(locale);
     }
   };
 
   return (
-    <header className="px-2 py-5 flex items-center justify-between">
+    <header className="relative px-2 py-5 flex items-center justify-between z-30">
+      <div className="sm:hidden">
+        <div
+          className="flex flex-col gap-[6px] cursor-pointer"
+          onClick={() => setIsMenuDisplay((curr) => !curr)}
+        >
+          <motion.div
+            className="w-4 border-t border-black"
+            variants={firstMenuBarVariant}
+            animate={isMenuDisplay ? "show" : "hide"}
+          />
+          <motion.div
+            className="w-4 border-t border-black"
+            variants={secondMenuBarVariant}
+            animate={isMenuDisplay ? "show" : "hide"}
+          />
+        </div>
+      </div>
       <div className="flex items-center gap-5">
-        <div className="flex items-center gap-1">
+        <div
+          className="flex items-center gap-1 cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-7 w-7"

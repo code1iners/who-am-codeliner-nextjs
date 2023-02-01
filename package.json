@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ce1pers/date-helpers": "^1.1.11",
+    "@ce1pers/use-animation": "^1.0.2",
     "@ce1pers/use-class": "^1.0.3",
     "@ce1pers/use-window": "^1.2.1",
-    "framer-motion": "^6.3.11",
+    "framer-motion": "^6.5.1",
     "next": "12.1.6",
     "next-translate": "^1.4.0",
     "react": "18.1.0",

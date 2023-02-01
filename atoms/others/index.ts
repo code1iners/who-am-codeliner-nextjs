@@ -1,5 +1,4 @@
 import { atom, selector } from "recoil";
-import getT from "next-translate/getT";
 
 export const avatarClickedCountAtom = atom({
   key: "avatarClickedCountAtom",
