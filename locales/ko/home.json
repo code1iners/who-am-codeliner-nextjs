@@ -1,5 +1,22 @@
 {
   "hello-title": "안녕하세요 Codeliner 입니다",
   "simple-introduce": "저는 평범한 <strong>소프트웨어 엔지니어</strong>입니다. 요즘 저의 관심 기술 스택은 <strong>NextJS</strong> 와 <strong>GraphQL</strong> 기반의 <strong>NestJS</strong>입니다. 저는 요즘 즐코(즐거운 코딩)를 하고 있습니다. 혹시 저에 대해 혹은 <strong>제가 진행했던 프로젝트</strong>에 관심이 있으시면 아래의 <strong>이력서</strong> 또는 <strong>GitHub</strong>를 확인해보는 것도 나쁘지 않을 것입니다.",
-  "my-location": "서울, 대한민국"
+  "my-location": "서울, 대한민국",
+  "avatar": {
+    "level": {
+      "0001": "먼지",
+      "0002": "솜털",
+      "0003": "초보자",
+      "0004": "유단자",
+      "0005": "닌자",
+      "0006": "파괴자",
+      "0007": "몬스터",
+      "0008": "8T트럭",
+      "0009": "머신",
+      "0010": "미친사람",
+      "0011": "초월자",
+      "0012": "흑염룡",
+      "0013": "이제그만"
+    }
+  }
 }

@@ -1,5 +1,22 @@
 {
   "hello-title": "Hello i'm Codeliner",
   "simple-introduce": "I'm just an ordinary <strong>Software Engineer</strong>. Nowadays my interested technology stacks are <strong>NextJS</strong> and <strong>NestJS</strong> with <strong>GraphQL</strong>. I'm having fun coding right now. If you are interested in <strong>My project</strong>, check out my <strong>Résumé</strong> or <strong>GitHub</strong> below.",
-  "my-location": "Seoul, South Korea"
+  "my-location": "Seoul, South Korea",
+  "avatar": {
+    "level": {
+      "0001": "Dust",
+      "0002": "Dowhy hair",
+      "0003": "Beginner",
+      "0004": "Master",
+      "0005": "Ninja",
+      "0006": "Destroyer",
+      "0007": "Monster",
+      "0008": "8T Truck",
+      "0009": "Machine",
+      "0010": "Crazy",
+      "0011": "God",
+      "0012": "Black Dragon",
+      "0013": "Stop"
+    }
+  }
 }

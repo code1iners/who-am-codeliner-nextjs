@@ -1,4 +1,5 @@
 import { atom, selector } from "recoil";
+import getT from "next-translate/getT";
 
 export const avatarClickedCountAtom = atom({
   key: "avatarClickedCountAtom",
@@ -12,31 +13,31 @@ export const avatarClickedLevel = selector({
 
     switch (true) {
       case clickedCount < 10:
-        return "먼지";
+        return "avatar.level.0001";
       case clickedCount < 20:
-        return "솜털";
+        return "avatar.level.0002";
       case clickedCount < 40:
-        return "초보자";
+        return "avatar.level.0003";
       case clickedCount < 60:
-        return "유단자";
+        return "avatar.level.0004";
       case clickedCount < 80:
-        return "닌자";
+        return "avatar.level.0005";
       case clickedCount < 100:
-        return "파괴자";
+        return "avatar.level.0006";
       case clickedCount < 150:
-        return "몬스터";
+        return "avatar.level.0007";
       case clickedCount < 200:
-        return "8T트럭";
+        return "avatar.level.0008";
       case clickedCount < 250:
-        return "머신";
+        return "avatar.level.0009";
       case clickedCount < 300:
-        return "미친사람";
+        return "avatar.level.0010";
       case clickedCount < 400:
-        return "초월자";
+        return "avatar.level.0011";
       case clickedCount < 500:
-        return "흑염룡";
+        return "avatar.level.0012";
       default:
-        return "이제그만";
+        return "avatar.level.0013";
     }
   },
 });

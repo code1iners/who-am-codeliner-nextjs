@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { avatarClickedCountAtom, avatarClickedLevel } from "@/atoms/others";
 import { useRef } from "react";
-import RainEffect from "../rain-effect";
+import useTranslation from "next-translate/useTranslation";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { motion } from "framer-motion";
+import { avatarClickedCountAtom, avatarClickedLevel } from "@/atoms/others";
+import RainEffect from "@/components/rain-effect";
 
 const avatarVariants = {
   idle: {
@@ -31,6 +32,7 @@ const avatarVariants = {
 };
 
 export default function MainAvatar() {
+  const { t } = useTranslation("home");
   const setAvatarClickedCountState = useSetRecoilState(avatarClickedCountAtom);
   const avatarClickedLevelState = useRecoilValue(avatarClickedLevel);
   const avatarClickedCountState = useRecoilValue(avatarClickedCountAtom);
@@ -48,12 +50,12 @@ export default function MainAvatar() {
       <div className="absolute right-3 bottom-3 z-10 px-2 bg-violet-500 rounded-md p-1 justify-center items-center gap-1 hidden sm:flex">
         <span
           className="text-white cursor-default select-none"
-          title={avatarClickedLevelState}
+          title={t(`${avatarClickedLevelState}`)}
         >
           {avatarClickedCountState}
         </span>
         <span className="text-white cursor-default text-xs whitespace-nowrap select-none">
-          {avatarClickedLevelState}
+          {t(`${avatarClickedLevelState}`)}
         </span>
       </div>
 
