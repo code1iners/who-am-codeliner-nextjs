@@ -1,43 +1,11 @@
-import useLocale from "libs/clients/useLocale";
 import { useState } from "react";
-import PillItem from "../commons/pill-item";
+import useLocale from "libs/clients/useLocale";
+import PillItem from "@/components/commons/pill-item";
+import { skillStacks } from "@/data/skill-stacks.data";
 
 export default function MainFooter() {
   const { t } = useLocale();
-  const [stacks, setStacks] = useState([
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "es6/es2015",
-    "nodejs",
-    "tailwind css",
-    "react",
-    "react native",
-    "nextjs",
-    "vercel",
-    "styled component",
-    "framer motion",
-    "recoil",
-    "vue",
-    "vuex",
-    "pinia",
-    "nestjs",
-    "graphql",
-    "apollo client",
-    "prisma",
-    "typeorm",
-    "planet scale",
-    "aws s3",
-    "aws cloud front",
-    "electron",
-    "vite",
-    "netlify",
-    "cloudflare",
-    "firebase",
-    "functional programming",
-    "clean coding",
-  ]);
+  const [stacks, setStacks] = useState(skillStacks);
 
   return (
     <footer className="px-2 pb-2 max-h-[80px] overflow-y-auto flex flex-col items-center space-y-3 no-scroll">

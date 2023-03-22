@@ -33,7 +33,10 @@ export default function TypingText({ textList }: TypingTextProps) {
 
   return (
     <div>
-      <span className="text-3xl font-bold tracking-wider" ref={el}></span>
+      <span
+        className="text-2xl font-bold tracking-wider whitespace-nowrap"
+        ref={el}
+      ></span>
     </div>
   );
 }
