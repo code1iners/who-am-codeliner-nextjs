@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { RecoilRoot, useRecoilValue } from "recoil";
+import { RecoilRoot } from "recoil";
 import { SWRConfig } from "swr";
 import { makeRotateEffect } from "@ce1pers/use-animation";
 import MainHeader from "@/components/layouts/main-header";
@@ -8,7 +8,6 @@ import MainFooter from "@/components/layouts/main-footer";
 import MainBody from "@/components/layouts/main-body";
 import ToastList from "@/components/toasts/toast-list";
 import { useEffect } from "react";
-import { clazz } from "@ce1pers/use-class";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

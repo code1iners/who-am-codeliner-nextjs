@@ -41,7 +41,9 @@ export default function SideProjectItem({
       </div>
       <div className="flex flex-col items-center gap-1">
         <span className="font-semibold tracking-wider">{name}</span>
-        <span className="py-1 text-sm text-gray-400">{skills.join(", ")}</span>
+        <span className="py-1 text-sm text-gray-400 text-center">
+          {skills.join(", ")}
+        </span>
       </div>
     </motion.div>
   );
