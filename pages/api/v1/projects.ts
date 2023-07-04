@@ -34,9 +34,16 @@ const sideProjects: SideProject[] = [
   {
     id: 2,
     name: "Time Stamper",
-    icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
+    icon: "M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5",
     skills: ["NextJS", "Progressive Web Application(PWA)", "TypeScript"],
     url: "https://time-stamper.codeliners.cc",
+  },
+  {
+    id: 4,
+    name: "Colockmon",
+    icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
+    skills: ["NextJS", "PWA", "TypeScript"],
+    url: "https://colockmon.codeliners.cc",
   },
 
   // {
