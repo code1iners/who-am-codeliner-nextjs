@@ -19,10 +19,10 @@ const sideProjects: SideProject[] = [
   },
   {
     id: 3,
-    name: "Co Pass",
+    name: "Conager",
     icon: "M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z",
     skills: ["NextJS", "PWA", "TypeScript", "NestJS", "GraphQL"],
-    url: "https://copass.codeliners.cc",
+    url: "https://conager.codeliners.cc",
   },
   {
     id: 1,
@@ -55,9 +55,6 @@ const sideProjects: SideProject[] = [
   // },
 ];
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<SideProject[]>
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<SideProject[]>) {
   res.status(200).json(sideProjects);
 }

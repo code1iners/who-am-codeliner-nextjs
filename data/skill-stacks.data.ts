@@ -31,8 +31,7 @@ export const skillStacks = [
   "cloudflare",
   "firebase",
   "functional programming",
-  "clean coding",
+  "clean coding architecture",
   "progressive web application",
-  "docker",
   "jenkins",
 ].sort();
