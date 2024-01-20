@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { SideProject } from "@/pages/api/v1/projects";
+import { motion } from "framer-motion";
 
 interface SideProjectItemProps extends SideProject {}
 
@@ -39,6 +39,7 @@ export default function SideProjectItem({
           <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
         </svg>
       </div>
+
       <div className="flex flex-col items-center gap-1">
         <span className="font-semibold tracking-wider">{name}</span>
         <span className="py-1 text-sm text-gray-400 text-center">

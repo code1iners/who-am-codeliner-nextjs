@@ -14,8 +14,15 @@ const sideProjects: SideProject[] = [
     id: 0,
     name: "Ce1pers",
     icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
-    skills: ["JavaScript", "TypeScript", "NPM"],
+    skills: ["JavaScript", "TypeScript", "Open Source", "NPM"],
     url: "https://github.com/code1iners/ce1pers",
+  },
+  {
+    id: 6,
+    name: "VVorkmon",
+    icon: "M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20",
+    skills: ["React", "PWA", "TypeScript"],
+    url: "https://vvorkmon.codeliners.cc",
   },
   {
     id: 3,
@@ -30,6 +37,13 @@ const sideProjects: SideProject[] = [
     icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
     skills: ["NextJS", "TypeScript"],
     url: "https://bf.codeliners.cc",
+  },
+  {
+    id: 5,
+    name: "OOTW",
+    icon: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z",
+    skills: ["React", "PWA", "TypeScript"],
+    url: "https://ootw.codeliners.cc",
   },
   {
     id: 2,
@@ -55,6 +69,9 @@ const sideProjects: SideProject[] = [
   // },
 ];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<SideProject[]>) {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<SideProject[]>,
+) {
   res.status(200).json(sideProjects);
 }

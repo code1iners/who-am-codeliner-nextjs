@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
-import { useEffect, useRef } from "react";
-import ContactList from "@/components/home/contact-list";
-import MyLocation from "@/components/home/my-location";
 import TypingText from "@/components/commons/typing-text";
-import useLocale from "@/libs/clients/useLocale";
+import ContactList from "@/components/home/contact-list";
 import MainAvatar from "@/components/home/main-avatar";
+import MyLocation from "@/components/home/my-location";
 import MyProjects from "@/components/home/my-projects";
 import MainContainer from "@/components/layouts/main-container";
+import useLocale from "@/libs/clients/useLocale";
+import type { NextPage } from "next";
+import { useEffect, useRef } from "react";
 
 const Home: NextPage = () => {
   const { t } = useLocale();

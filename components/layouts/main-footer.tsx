@@ -1,7 +1,7 @@
-import { useState } from "react";
-import useLocale from "libs/clients/useLocale";
 import PillItem from "@/components/commons/pill-item";
 import { skillStacks } from "@/data/skill-stacks.data";
+import useLocale from "libs/clients/useLocale";
+import { useState } from "react";
 
 export default function MainFooter() {
   const { t } = useLocale();

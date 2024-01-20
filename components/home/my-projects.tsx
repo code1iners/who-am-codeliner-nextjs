@@ -1,5 +1,5 @@
-import useLocale from "@/libs/clients/useLocale";
 import SideProjects from "@/components/home/side-projects";
+import useLocale from "@/libs/clients/useLocale";
 
 export default function MyProjects() {
   const { t } = useLocale();
