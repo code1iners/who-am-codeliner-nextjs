@@ -11,25 +11,18 @@ export interface SideProject {
 
 const sideProjects: SideProject[] = [
   {
+    id: 6,
+    name: "VVorkmon",
+    icon: "M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20",
+    skills: ["React", "PWA", "TypeScript", "NestJS", "Graphql"],
+    url: "https://vvorkmon.codeliners.cc",
+  },
+  {
     id: 0,
     name: "Ce1pers",
     icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
     skills: ["JavaScript", "TypeScript", "Open Source", "NPM"],
     url: "https://github.com/code1iners/ce1pers",
-  },
-  {
-    id: 6,
-    name: "VVorkmon",
-    icon: "M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20",
-    skills: ["React", "PWA", "TypeScript"],
-    url: "https://vvorkmon.codeliners.cc",
-  },
-  {
-    id: 3,
-    name: "Conager",
-    icon: "M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z",
-    skills: ["NextJS", "PWA", "TypeScript", "NestJS", "GraphQL"],
-    url: "https://conager.codeliners.cc",
   },
   {
     id: 1,
