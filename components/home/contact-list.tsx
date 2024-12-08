@@ -23,7 +23,7 @@ export default function ContactList() {
 
       <a
         className="flex items-center gap-2 px-2 py-1 border rounded-md shadow-md c-hover-md origin-right"
-        href="https://docs.google.com/document/d/12xE02W2eol8UdPxHCjeBhntqpOKAzcPBfM2xB_LyK7M/edit?usp=sharing"
+        href="https://congruous-blanket-573.notion.site/1553d8382e9e80829456fc80a7e29870"
         target="_blank"
         rel="noreferrer"
       >
